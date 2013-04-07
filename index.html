@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="prideapp">
+	<head>
+		<title>FreelancePride - App</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/datepicker.css" />
+		<link rel="stylesheet" href="css/app.css" />
+	</head>
+	<body>
+		<div class="row-fluid">
+			<div ng-controller="prideappAppController" class="span10 offset1">
+				<h3>FreelancePride - App</h3>
+				Displaying tasks for date:
+				<div data-date-format="dd/mm/yyyy" class="input-append date" ng-model="date" datepicker>
+					<input type="text" readonly size="16" />
+					<span class="add-on btn btn-primary"><i class="icon-calendar"></i></span>
+				</div>
+				<div class="pull-right">
+					<a href="report.html">Report</a>
+				</div>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Customer</th>
+							<th>Date</th>
+							<th>Duration</th>
+							<th>Description</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="task in tasks|filter:dateFilter">
+							<td><span ng-model="task.Name" datatype="text" editable></span></td>
+							<td><span ng-model="task.Customer" datatype="customers" editable></span></td>
+							<td><span ng-model="task.Date" datatype="date" editable></span></td>
+							<td><span ng-model="task.Duration" datatype="number" editable></span></td>
+							<td><span ng-model="task.Description" datatype="text" editable></span></td>
+							<td><a ng-click="deleteTask(task)"><i class="icon-trash"></i></a></td>
+						</tr>
+					</tbody>
+				</table>
+				<form id="newTaskForm" ng-submit="addTask(newTaskName)">
+					<input id="newTaskName" placeholder="Enter name for new task" ng-model="newTaskName" type="text" />
+					<input class="btn btn-primary" type="submit" value="OK" />
+				</form>
+			</div>
+		</div>
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> <!-- need for datepicker, remove asap -->
+		<script src="js/libs/angular.min.js"></script>
+		<script src="js/libs/bootstrap.js"></script>
+		<script src="js/libs/bootstrap-datepicker.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/controllers/prideappAppController.js"></script>
+		<script src="js/modelContext/modelContext.js"></script>
+		<script src="js/directives/datepicker.js"></script>
+		<script src="js/directives/editable.js"></script>
+	</body>
+</html>
