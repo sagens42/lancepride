@@ -19,13 +19,14 @@ prideapp.controller('prideappReportController', function prideappController($sco
 			if (task.Customer === customer) {
 				var tempTaskDate = new Date(task.Date);
 				var taskDate = new Date(tempTaskDate.getFullYear(), tempTaskDate.getMonth(), tempTaskDate.getDate());
+				var diffTime = date - taskDate;
 				if (taskDate.getTime() == date.getTime()) {
 					today += task.Duration;
 				}
-				if (date - taskDate < dayMiliSeconds * 7) {
+				if ((diffTime > 0) && (diffTime < dayMiliSeconds * 7)) {
 					lastWeek += task.Duration;
 				}
-				if (date - taskDate < dayMiliSeconds * 31) {
+				if ((diffTime > 0) && (diffTime < dayMiliSeconds * 31)) {
 					lastMonth += task.Duration;
 				}
 			}
