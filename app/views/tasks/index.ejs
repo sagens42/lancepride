@@ -15,9 +15,6 @@
 					<input type="text" readonly size="16" />
 					<span class="add-on btn btn-primary"><i class="icon-calendar"></i></span>
 				</div>
-				<div class="pull-right">
-					<a href="report.html">Report</a>
-				</div>
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -31,11 +28,11 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat="task in tasks|filter:dateFilter">
-							<td><span ng-model="task.Name" datatype="text" editable></span></td>
-							<td><span ng-model="task.Customer" datatype="customers" editable></span></td>
-							<td><span ng-model="task.Date" datatype="date" editable></span></td>
-							<td><span ng-model="task.Duration" datatype="number" editable></span></td>
-							<td><span ng-model="task.Description" datatype="text" editable></span></td>
+							<td><span ng-model="task.name" datatype="text" editable></span></td>
+							<td><span ng-model="task.customer" datatype="customers" editable></span></td>
+							<td><span ng-model="task.date" datatype="date" editable></span></td>
+							<td><span ng-model="task.duration" datatype="number" editable></span></td>
+							<td><span ng-model="task.description" datatype="text" editable></span></td>
 							<td><a ng-click="deleteTask(task)"><i class="icon-trash"></i></a></td>
 						</tr>
 					</tbody>
@@ -46,7 +43,7 @@
 				</form>
 			</div>
 		</div>
-		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> <!-- need for datepicker, remove asap -->
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script src="js/libs/angular.min.js"></script>
 		<script src="js/libs/bootstrap.js"></script>
 		<script src="js/libs/bootstrap-datepicker.js"></script>
