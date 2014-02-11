@@ -11,11 +11,10 @@ module.exports = function (app, passport) {
 	app.get('/api/tasks', auth.requiresLogin, api.getTasks);
 	app.get('/api/customers', auth.requiresLogin, api.getCustomers);
 	app.post('/api/tasks', auth.requiresLogin, api.addTask);
-	app.post('/api/customer', auth.requiresLogin, api.addCustomer);
+	app.post('/api/customers', auth.requiresLogin, api.addCustomer);
 	app.del('/api/task/:id', auth.requiresLogin, api.deleteTask);
 	app.del('/api/customer/:id', auth.requiresLogin, api.deleteCustomer);
 	app.put('/api/task/:id', auth.requiresLogin, api.updateTask);
-	app.put('/api/customer/:id', auth.requiresLogin, api.updateTask);
 
 	// login stuff
 	app.get('/login', users.login);

@@ -37,8 +37,10 @@ prideapp.factory('modelContext', function modelContext ($http, $q) {
 			return deferred.promise;
 		},
 
-		addCustomer: function(customers) {
-			localStorage.setItem('customers', JSON.stringify(customers));
+		addCustomer: function(customerName, callback) {
+			$http.post('/api/customers', { name: customerName }).success(function(response) {
+				if (callback) callback.call(this);
+			});
 		}
 	};
 });

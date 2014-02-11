@@ -89,7 +89,7 @@ prideapp.directive('editable', function($compile) {
 							for (var i=0; i < data.length;i++) {
 								var $li = angular.element(document.createElement('li'));
 								var $a = angular.element(document.createElement('a'));
-								//$a.attr('href', '#');
+								$a.attr('href', '#');
 								$a.text(data[i]);
 								$a.click(function () {
 									var $self = angular.element(this);
@@ -120,6 +120,11 @@ prideapp.directive('editable', function($compile) {
 							$newinput.attr('type', 'text');
 							$newinput.attr('ng-model', 'newCustomerName');
 							$newform.append($newinput);
+							var $newButton = angular.element(document.createElement('button'));
+							$newButton.text('OK');
+							$newButton.addClass('btn');
+							$newButton.attr('ng-click', 'addCustomer(newCustomerName)');
+							$newform.append($newButton);
 							$newli.append($compile($newform)(scope));
 							$ul.append($newli);
 							$div.append($ul);

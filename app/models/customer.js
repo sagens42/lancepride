@@ -6,7 +6,6 @@ var CustomerSchema = new Schema({
 });
 
 CustomerSchema.path('name').validate(function (name) {
-	if (this.doesNotRequireValidation()) return true;
 	return name.length;
 }, 'Name cannot be blank');
 

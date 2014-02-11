@@ -14,7 +14,7 @@ exports.getTasks = function(req, res) {
 };
 
 exports.getCustomers = function(req, res) {
-	Customer.find({ user: req.user }, function(err, customers) {
+	Customer.find({}, function(err, customers) {
 		customers = customers || [];
 		if (err) { 
 			res.send(err); 
